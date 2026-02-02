@@ -3,39 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PurePeptide | Precision Skincare</title>
+    <title>Aura Peptides | Premium Tirzepatide & GLP-1 Peptides UAE</title>
+    <meta name="description" content="Premium pharmaceutical-grade Tirzepatide and GLP-1 peptides. Fast UAE delivery. Authentic Keifei Pharma products.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --gold: #b8956c;
-            --gold-light: #d4c4a8;
-            --gold-dark: #8a6d4b;
-            --cream: #faf8f5;
-            --cream-dark: #f0ebe3;
-            --black: #1a1a1a;
-            --gray: #666;
-            --gray-light: #999;
-            --success: #28a745;
-            --error: #dc3545;
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --primary-light: #14b8a6;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --gray-900: #1e293b;
+            --gray-700: #334155;
+            --gray-500: #64748b;
+            --gray-300: #cbd5e1;
+            --gray-100: #f1f5f9;
+            --white: #ffffff;
+            --success: #22c55e;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--cream);
-            color: var(--black);
-            font-size: 15px;
+            background: var(--white);
+            color: var(--dark);
+            font-size: 16px;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-weight: 400;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         /* Navigation */
@@ -45,84 +56,144 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 0 5%;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
-        .nav.scrolled {
-            background: rgba(250, 248, 245, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
         }
 
         .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
             font-size: 24px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: var(--black);
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--dark);
         }
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 32px;
             list-style: none;
         }
 
         .nav-menu a {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--black);
+            color: var(--gray-700);
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .nav-menu a:hover { color: var(--gold); }
+        .nav-menu a:hover { color: var(--primary); }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
         .nav-cart {
+            position: relative;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--black);
-            text-decoration: none;
+            padding: 10px 16px;
+            background: var(--gray-100);
+            border-radius: 8px;
             cursor: pointer;
-            position: relative;
+            transition: all 0.3s;
         }
 
+        .nav-cart:hover { background: var(--gray-300); }
+
         .cart-count {
-            background: var(--gold);
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
             color: white;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
-            width: 18px;
-            height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: absolute;
-            top: -8px;
-            right: -8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-100);
+        }
+
+        .btn-lg {
+            padding: 16px 32px;
+            font-size: 16px;
         }
 
         /* Hero */
         .hero {
             min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
             align-items: center;
-            padding: 100px 5% 60px;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+            padding: 100px 0 60px;
             position: relative;
             overflow: hidden;
         }
@@ -134,14 +205,20 @@
             right: -20%;
             width: 80%;
             height: 200%;
-            background: radial-gradient(ellipse at center, rgba(184, 149, 108, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
             pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            padding-right: 60px;
         }
 
         .hero-badge {
@@ -149,249 +226,200 @@
             align-items: center;
             gap: 8px;
             padding: 8px 16px;
-            background: rgba(184, 149, 108, 0.1);
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--gold-dark);
+            background: rgba(13, 148, 136, 0.1);
+            border: 1px solid rgba(13, 148, 136, 0.2);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-dark);
             margin-bottom: 24px;
         }
 
         .hero h1 {
-            font-size: clamp(42px, 5vw, 64px);
-            line-height: 1.1;
+            font-size: clamp(40px, 5vw, 56px);
             margin-bottom: 24px;
-            letter-spacing: -1px;
+            color: var(--dark);
         }
 
         .hero h1 span {
-            font-style: italic;
-            color: var(--gold-dark);
+            color: var(--primary);
         }
 
         .hero-text {
-            font-size: 16px;
-            color: var(--gray);
-            max-width: 440px;
-            margin-bottom: 40px;
-            line-height: 1.8;
+            font-size: 18px;
+            color: var(--gray-500);
+            max-width: 500px;
+            margin-bottom: 32px;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
-            align-items: center;
+            margin-bottom: 40px;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+        .hero-stats {
+            display: flex;
+            gap: 40px;
         }
 
-        .btn-primary {
-            background: var(--black);
-            color: white;
+        .hero-stat {
+            text-align: left;
         }
 
-        .btn-primary:hover {
-            background: var(--gold-dark);
+        .hero-stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--black);
-            border: 1px solid var(--black);
-        }
-
-        .btn-secondary:hover {
-            background: var(--black);
-            color: white;
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: white;
-        }
-
-        .btn-gold:hover {
-            background: var(--gold-dark);
-        }
-
-        .btn-sm {
-            padding: 10px 20px;
-            font-size: 11px;
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--gray-500);
         }
 
         .hero-visual {
             position: relative;
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 600px;
         }
 
-        .hero-product {
-            position: relative;
-            text-align: center;
+        .hero-product-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            max-width: 400px;
+            transform: rotate(2deg);
         }
 
-        .hero-product img {
-            max-width: 320px;
-            border-radius: 20px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.15);
-            animation: float 6s ease-in-out infinite;
+        .hero-product-card img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 20px;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .hero-product-name {
-            margin-top: 24px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
-            color: var(--black);
-        }
-
-        .hero-product-price {
-            margin-top: 8px;
+        .hero-product-info h3 {
             font-size: 20px;
-            font-weight: 500;
-            color: var(--gold-dark);
-        }
-
-        .hero-floating {
-            position: absolute;
-            border: 1px solid rgba(184, 149, 108, 0.15);
-            border-radius: 50%;
-            animation: floatSlow 15s ease-in-out infinite;
-        }
-
-        .hero-floating-1 { width: 300px; height: 300px; top: 5%; right: 10%; }
-        .hero-floating-2 { width: 150px; height: 150px; bottom: 15%; left: 5%; animation-delay: -5s; }
-        .hero-floating-3 { width: 80px; height: 80px; top: 40%; left: 15%; background: rgba(184, 149, 108, 0.05); animation-delay: -10s; }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(10px, -15px); }
-            66% { transform: translate(-10px, 10px); }
-        }
-
-        /* Features Strip */
-        .features-strip {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            background: var(--black);
-            color: white;
-        }
-
-        .feature-item {
-            padding: 40px 30px;
-            text-align: center;
-            border-right: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .feature-item:last-child { border-right: none; }
-
-        .feature-icon {
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .feature-item h4 {
-            font-size: 16px;
             margin-bottom: 8px;
         }
 
-        .feature-item p {
+        .hero-product-info p {
+            color: var(--gray-500);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .hero-product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price-tag {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price-tag small {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--gray-500);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--dark);
+            padding: 40px 0;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .trust-item {
+            color: white;
+        }
+
+        .trust-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .trust-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .trust-item p {
             font-size: 13px;
-            color: rgba(255,255,255,0.6);
+            color: var(--gray-300);
         }
 
         /* Section */
         .section {
-            padding: 120px 5%;
-        }
-
-        .section-dark {
-            background: var(--black);
-            color: white;
+            padding: 100px 0;
         }
 
         .section-header {
             text-align: center;
             max-width: 600px;
-            margin: 0 auto 80px;
+            margin: 0 auto 60px;
         }
 
         .section-label {
-            font-size: 12px;
+            display: inline-block;
+            font-size: 13px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 16px;
+            color: var(--primary);
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: clamp(32px, 4vw, 48px);
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
+            color: var(--dark);
         }
 
         .section-desc {
-            color: var(--gray);
+            color: var(--gray-500);
             font-size: 16px;
-            line-height: 1.8;
         }
 
-        .section-dark .section-desc {
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* Products Grid */
+        /* Products */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .product-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.4s ease;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
         }
 
         .product-image {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
+            aspect-ratio: 4/3;
+            background: var(--gray-100);
             overflow: hidden;
         }
 
@@ -401,198 +429,384 @@
             object-fit: cover;
         }
 
-        .product-tag {
+        .product-badge {
             position: absolute;
-            top: 16px;
-            left: 16px;
+            top: 12px;
+            left: 12px;
             padding: 6px 12px;
-            background: var(--gold);
+            background: var(--primary);
             color: white;
             font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            border-radius: 6px;
             text-transform: uppercase;
+        }
+
+        .product-badge.hot {
+            background: #ef4444;
         }
 
         .product-info {
             padding: 24px;
         }
 
+        .product-brand {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
         .product-name {
             font-size: 18px;
+            font-weight: 600;
             margin-bottom: 8px;
+            color: var(--dark);
         }
 
         .product-desc {
             font-size: 14px;
-            color: var(--gray);
+            color: var(--gray-500);
             margin-bottom: 16px;
         }
 
-        .product-bottom {
+        .product-meta {
             display: flex;
-            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .product-meta span {
+            display: flex;
             align-items: center;
+            gap: 4px;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-100);
         }
 
         .product-price {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--gold-dark);
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-price small {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--gray-500);
         }
 
         .add-to-cart {
-            background: var(--black);
+            padding: 10px 20px;
+            background: var(--gradient);
             color: white;
             border: none;
-            padding: 10px 16px;
-            font-size: 11px;
+            border-radius: 8px;
+            font-size: 13px;
             font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .add-to-cart:hover {
-            background: var(--gold);
+            transform: scale(1.05);
         }
 
         .add-to-cart.added {
             background: var(--success);
         }
 
-        /* Benefits */
-        .benefits-grid {
+        /* Why Us */
+        .why-section {
+            background: var(--gray-100);
+        }
+
+        .why-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            gap: 30px;
         }
 
-        .benefit-card {
+        .why-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
             text-align: center;
-            padding: 40px 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .benefit-card:hover {
-            border-color: var(--gold);
-            background: rgba(184, 149, 108, 0.05);
+        .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
+        .why-icon {
+            width: 72px;
+            height: 72px;
             margin: 0 auto 24px;
-            border: 1px solid var(--gold);
+            background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .why-card h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        /* How it Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-card::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background: var(--gray-300);
+        }
+
+        .step-card:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
         }
 
-        .benefit-card h4 {
-            font-size: 22px;
-            margin-bottom: 12px;
+        .step-card h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
         }
 
-        .benefit-card p {
+        .step-card p {
             font-size: 14px;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.7;
+            color: var(--gray-500);
         }
 
         /* Testimonials */
-        .testimonials {
-            max-width: 800px;
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--gray-100);
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .testimonial-quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(24px, 3vw, 32px);
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 24px;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+
+        .testimonial-text {
+            font-size: 20px;
             font-style: italic;
-            line-height: 1.6;
-            margin-bottom: 32px;
+            color: var(--gray-700);
+            margin-bottom: 24px;
+            line-height: 1.8;
         }
 
         .testimonial-author {
-            font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            color: var(--dark);
         }
 
         .testimonial-role {
-            font-size: 13px;
-            color: var(--gray);
-            margin-top: 4px;
-        }
-
-        .testimonial-stars {
-            color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 24px;
-            letter-spacing: 4px;
+            font-size: 14px;
+            color: var(--gray-500);
         }
 
         /* CTA */
         .cta {
-            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            background: var(--gradient);
+            padding: 80px 0;
             text-align: center;
-            padding: 100px 5%;
         }
 
         .cta h2 {
-            font-size: clamp(36px, 4vw, 52px);
-            margin-bottom: 20px;
+            color: white;
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
         }
 
         .cta p {
-            color: var(--gray);
-            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
             max-width: 500px;
-            margin: 0 auto 40px;
+            margin: 0 auto 32px;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--gray-500);
+            margin-bottom: 32px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-method-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-method-text h4 {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .contact-method-text p {
+            font-size: 16px;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .contact-form {
+            background: var(--gray-100);
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
         /* Footer */
         .footer {
-            background: var(--black);
+            background: var(--dark);
             color: white;
-            padding: 80px 5% 40px;
+            padding: 60px 0 30px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-brand {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand span {
+            color: var(--primary-light);
         }
 
         .footer-desc {
             font-size: 14px;
-            color: rgba(255,255,255,0.6);
+            color: var(--gray-300);
             line-height: 1.8;
-            max-width: 300px;
+            max-width: 280px;
         }
 
         .footer-title {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
 
         .footer-links {
@@ -605,22 +819,22 @@
 
         .footer-links a {
             font-size: 14px;
-            color: rgba(255,255,255,0.6);
+            color: var(--gray-300);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--gold);
+            color: var(--primary-light);
         }
 
         .footer-bottom {
-            padding-top: 40px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
             font-size: 13px;
-            color: rgba(255,255,255,0.4);
+            color: var(--gray-500);
         }
 
         /* Cart Sidebar */
@@ -658,7 +872,7 @@
 
         .cart-header {
             padding: 24px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--gray-100);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -671,9 +885,9 @@
         .cart-close {
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
-            color: var(--gray);
+            color: var(--gray-500);
         }
 
         .cart-items {
@@ -686,7 +900,7 @@
             display: flex;
             gap: 16px;
             padding: 16px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--gray-100);
         }
 
         .cart-item img {
@@ -701,12 +915,12 @@
         }
 
         .cart-item-name {
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 4px;
         }
 
         .cart-item-price {
-            color: var(--gold-dark);
+            color: var(--primary);
             font-weight: 600;
         }
 
@@ -720,21 +934,18 @@
         .qty-btn {
             width: 28px;
             height: 28px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--gray-300);
             background: white;
             cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 6px;
         }
 
         .qty-btn:hover {
-            background: var(--cream);
+            background: var(--gray-100);
         }
 
         .cart-item-remove {
-            color: var(--error);
+            color: #ef4444;
             background: none;
             border: none;
             cursor: pointer;
@@ -745,12 +956,12 @@
         .cart-empty {
             text-align: center;
             padding: 60px 20px;
-            color: var(--gray);
+            color: var(--gray-500);
         }
 
         .cart-footer {
             padding: 24px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--gray-100);
         }
 
         .cart-total {
@@ -787,7 +998,7 @@
             max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
-            border-radius: 12px;
+            border-radius: 16px;
             transform: scale(0.9);
             transition: transform 0.3s;
         }
@@ -798,7 +1009,7 @@
 
         .modal-header {
             padding: 24px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--gray-100);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -813,55 +1024,18 @@
             border: none;
             font-size: 28px;
             cursor: pointer;
-            color: var(--gray);
+            color: var(--gray-500);
         }
 
         .modal-body {
             padding: 24px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #ddd;
-            font-size: 15px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
         .order-summary {
-            background: var(--cream);
+            background: var(--gray-100);
             padding: 20px;
             margin-bottom: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .order-summary h4 {
@@ -881,7 +1055,7 @@
             justify-content: space-between;
             padding-top: 12px;
             margin-top: 12px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid var(--gray-300);
             font-weight: 600;
         }
 
@@ -891,8 +1065,16 @@
         }
 
         .success-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--success);
         }
 
         .success-message h3 {
@@ -900,20 +1082,20 @@
         }
 
         .success-message p {
-            color: var(--gray);
+            color: var(--gray-500);
             margin-bottom: 24px;
         }
 
-        /* Toast Notification */
+        /* Toast */
         .toast {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: var(--black);
+            background: var(--dark);
             color: white;
             padding: 16px 32px;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 14px;
             font-weight: 500;
             z-index: 5000;
@@ -930,59 +1112,76 @@
             background: var(--success);
         }
 
-        .toast.error {
-            background: var(--error);
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s;
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero-content { padding-right: 0; }
-            .hero-text { margin: 0 auto 40px; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { order: 2; }
+            .hero-visual { order: 1; margin-bottom: 40px; }
             .hero-buttons { justify-content: center; }
-            .hero-visual { height: 400px; margin-top: 40px; }
-            .products-grid, .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-stats { justify-content: center; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .step-card::after { display: none; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
             .nav-menu { display: none; }
-            .hero { padding: 120px 5% 60px; }
-            .features-strip { grid-template-columns: repeat(2, 1fr); }
-            .products-grid, .benefits-grid { grid-template-columns: 1fr; }
-            .section { padding: 80px 5%; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .section { padding: 60px 0; }
+            .footer-grid { grid-template-columns: 1fr; }
             .cart-sidebar { width: 100%; right: -100%; }
             .form-row { grid-template-columns: 1fr; }
+            .hero-product-card { max-width: 300px; }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <a href="#" class="nav-logo">PurePeptide</a>
-        <ul class="nav-menu">
-            <li><a href="#products">Products</a></li>
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="nav-cart" onclick="toggleCart()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            Cart
-            <span class="cart-count" id="cartCount">0</span>
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">Aura<span>Peptides</span></a>
+            <ul class="nav-menu">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="nav-cart" onclick="toggleCart()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -998,15 +1197,14 @@
         <div class="cart-items" id="cartItems">
             <div class="cart-empty">
                 <p>Your cart is empty</p>
-                <a href="#products" class="btn btn-primary btn-sm" onclick="toggleCart()" style="margin-top: 16px;">Shop Now</a>
             </div>
         </div>
         <div class="cart-footer" id="cartFooter" style="display: none;">
             <div class="cart-total">
                 <span>Total</span>
-                <span id="cartTotal">$0</span>
+                <span id="cartTotal">AED 0</span>
             </div>
-            <button class="btn btn-primary" style="width: 100%;" onclick="openCheckout()">Checkout</button>
+            <button class="btn btn-primary" style="width: 100%;" onclick="openCheckout()">Checkout via WhatsApp</button>
         </div>
     </div>
 
@@ -1020,50 +1218,47 @@
             <div class="modal-body" id="checkoutBody">
                 <div class="order-summary" id="orderSummary"></div>
                 <form id="checkoutForm" onsubmit="submitOrder(event)">
-                    <h4 style="margin-bottom: 20px;">Shipping Information</h4>
+                    <h4 style="margin-bottom: 20px;">Delivery Information</h4>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Full Name *</label>
                             <input type="text" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" name="email" required>
+                            <label>Phone/WhatsApp *</label>
+                            <input type="tel" name="phone" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone">
+                        <label>Email</label>
+                        <input type="email" name="email">
                     </div>
                     <div class="form-group">
-                        <label>Address *</label>
+                        <label>Delivery Address *</label>
                         <input type="text" name="address" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>City *</label>
-                            <input type="text" name="city" required>
+                            <input type="text" name="city" value="Dubai" required>
                         </div>
                         <div class="form-group">
-                            <label>ZIP Code *</label>
-                            <input type="text" name="zip" required>
+                            <label>Emirate</label>
+                            <select name="emirate">
+                                <option value="Dubai">Dubai</option>
+                                <option value="Abu Dhabi">Abu Dhabi</option>
+                                <option value="Sharjah">Sharjah</option>
+                                <option value="Ajman">Ajman</option>
+                                <option value="RAK">Ras Al Khaimah</option>
+                                <option value="Fujairah">Fujairah</option>
+                                <option value="UAQ">Umm Al Quwain</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Country *</label>
-                        <select name="country" required>
-                            <option value="">Select Country</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="AU">Australia</option>
-                            <option value="AE">United Arab Emirates</option>
-                            <option value="DE">Germany</option>
-                            <option value="FR">France</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-gold" style="width: 100%;">Place Order</button>
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Order via WhatsApp
+                    </button>
                 </form>
             </div>
         </div>
@@ -1074,199 +1269,365 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-floating hero-floating-1"></div>
-        <div class="hero-floating hero-floating-2"></div>
-        <div class="hero-floating hero-floating-3"></div>
-
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span>★</span> Award Winning Formula
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🔬</span> Pharmaceutical Grade Peptides
+                </div>
+                <h1>Premium <span>Tirzepatide</span> Delivered to UAE</h1>
+                <p class="hero-text">Authentic Keifei Pharma products. Fast delivery across all Emirates. Trusted by thousands of customers.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary btn-lg">Shop Now</a>
+                    <a href="https://wa.me/971501234567" class="btn btn-outline btn-lg" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp Us
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">5,000+</div>
+                        <div class="hero-stat-label">Happy Customers</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100%</div>
+                        <div class="hero-stat-label">Authentic Products</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">24-48h</div>
+                        <div class="hero-stat-label">UAE Delivery</div>
+                    </div>
+                </div>
             </div>
-            <h1>Precision Peptide <span>Delivery</span></h1>
-            <p class="hero-text">Experience the future of skincare with our patented micro-dosing technology. Clinically proven to reduce fine lines by 47% in just 4 weeks.</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">Shop Now</a>
-                <a href="#benefits" class="btn btn-secondary">Learn More</a>
-            </div>
-        </div>
-
-        <div class="hero-visual">
-            <div class="hero-product">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=700&fit=crop" alt="Peptide Pen">
-                <div class="hero-product-name">Peptide Pen Pro</div>
-                <div class="hero-product-price">$189</div>
+            <div class="hero-visual">
+                <div class="hero-product-card">
+                    <img src="images/product2.jpg" alt="Mounjafei Tirzepatide">
+                    <div class="hero-product-info">
+                        <h3>Mounjafei 10mg/ml</h3>
+                        <p>Tirzepatide Pre-filled Pen by Keifei Pharma</p>
+                        <div class="hero-product-price">
+                            <span class="price-tag">AED 850 <small>/pen</small></span>
+                            <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Strip -->
-    <div class="features-strip">
-        <div class="feature-item">
-            <div class="feature-icon">🧬</div>
-            <h4>12 Active Peptides</h4>
-            <p>Clinically tested formula</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">🎯</div>
-            <h4>Precision Dosing</h4>
-            <p>Micro-delivery technology</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">🌿</div>
-            <h4>Clean Formula</h4>
-            <p>Vegan & cruelty-free</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">✨</div>
-            <h4>Visible Results</h4>
-            <p>In just 14 days</p>
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">✓</div>
+                <h4>100% Authentic</h4>
+                <p>Genuine Keifei Pharma products</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🚚</div>
+                <h4>Fast Delivery</h4>
+                <p>24-48 hours across UAE</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">❄️</div>
+                <h4>Cold Chain</h4>
+                <p>Temperature controlled shipping</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">💬</div>
+                <h4>24/7 Support</h4>
+                <p>WhatsApp support always</p>
+            </div>
         </div>
     </div>
 
     <!-- Products -->
     <section class="section" id="products">
-        <div class="section-header fade-in">
-            <div class="section-label">Our Collection</div>
-            <h2 class="section-title">Complete Your Routine</h2>
-            <p class="section-desc">Each product is designed to work in harmony, delivering maximum peptide absorption for transformative results.</p>
-        </div>
-
-        <div class="products-grid" id="productsGrid">
-            <!-- Products loaded via JS -->
-        </div>
-    </section>
-
-    <!-- Benefits -->
-    <section class="section section-dark" id="benefits">
-        <div class="section-header fade-in">
-            <div class="section-label">The Science</div>
-            <h2 class="section-title">Why Peptides Work</h2>
-            <p class="section-desc">Our bioactive peptide complex targets skin at the cellular level, stimulating collagen production and accelerating natural repair.</p>
-        </div>
-
-        <div class="benefits-grid">
-            <div class="benefit-card fade-in">
-                <div class="benefit-icon">💧</div>
-                <h4>Hydrate Deeply</h4>
-                <p>Peptides attract and lock moisture into skin, improving hydration by up to 200%.</p>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Products</span>
+                <h2 class="section-title">Premium Peptide Collection</h2>
+                <p class="section-desc">Pharmaceutical-grade peptides from trusted manufacturers. All products are 100% authentic and lab-tested.</p>
             </div>
-            <div class="benefit-card fade-in">
-                <div class="benefit-icon">🔬</div>
-                <h4>Firm & Lift</h4>
-                <p>Stimulates collagen synthesis for visibly firmer, more elastic skin.</p>
-            </div>
-            <div class="benefit-card fade-in">
-                <div class="benefit-icon">✨</div>
-                <h4>Brighten Tone</h4>
-                <p>Reduces hyperpigmentation and evens skin tone for a radiant glow.</p>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products loaded via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="section" id="reviews">
-        <div class="section-header fade-in">
-            <div class="section-label">Reviews</div>
-            <h2 class="section-title">Loved by Thousands</h2>
-        </div>
+    <!-- Why Us -->
+    <section class="section why-section" id="why">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-title">The Aura Peptides Difference</h2>
+                <p class="section-desc">We're committed to quality, authenticity, and customer satisfaction.</p>
+            </div>
 
-        <div class="testimonials fade-in">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">"I've tried countless serums and devices. Nothing comes close to PurePeptide. My skin has never looked this good—friends keep asking what I'm doing differently."</p>
-            <div class="testimonial-author">Sarah Mitchell</div>
-            <div class="testimonial-role">Verified Buyer, New York</div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🔬</div>
+                    <h4>Lab Tested</h4>
+                    <p>Every batch is tested for purity and potency before shipping to ensure you get exactly what you ordered.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📦</div>
+                    <h4>Discreet Packaging</h4>
+                    <p>All orders shipped in plain, unmarked packaging for your privacy. No external branding or labels.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💳</div>
+                    <h4>Secure Payment</h4>
+                    <p>Multiple payment options including bank transfer and cash on delivery for your convenience.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🏥</div>
+                    <h4>Medical Support</h4>
+                    <p>Dosage guidance and usage instructions provided. Our team is here to answer your questions.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🔄</div>
+                    <h4>Easy Returns</h4>
+                    <p>Not satisfied? We offer hassle-free returns within 7 days of delivery on unopened products.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⭐</div>
+                    <h4>5-Star Rated</h4>
+                    <p>Thousands of satisfied customers across the UAE. Check our reviews on Instagram and Google.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section" id="contact" style="background: var(--cream-dark);">
-        <div class="section-header fade-in">
-            <div class="section-label">Get in Touch</div>
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-desc">Have questions? We'd love to hear from you.</p>
-        </div>
+    <!-- How it Works -->
+    <section class="section" id="how">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How It Works</span>
+                <h2 class="section-title">Order in 4 Simple Steps</h2>
+            </div>
 
-        <form id="contactForm" onsubmit="submitContact(event)" style="max-width: 500px; margin: 0 auto;">
-            <div class="form-group">
-                <label>Name *</label>
-                <input type="text" name="name" required>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Browse Products</h4>
+                    <p>Choose from our selection of premium peptides</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Add to Cart</h4>
+                    <p>Select quantity and add items to your cart</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Checkout</h4>
+                    <p>Complete order via WhatsApp or form</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Fast Delivery</h4>
+                    <p>Receive within 24-48 hours in UAE</p>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Email *</label>
-                <input type="email" name="email" required>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="section" style="background: var(--gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">What Our Customers Say</h2>
             </div>
-            <div class="form-group">
-                <label>Subject</label>
-                <input type="text" name="subject">
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Excellent service and authentic products. I've been ordering from Aura Peptides for 6 months now. Fast delivery, great communication, and the products are exactly as described. Highly recommend!"</p>
+                <div class="testimonial-author">Ahmed K.</div>
+                <div class="testimonial-role">Verified Buyer, Dubai</div>
             </div>
-            <div class="form-group">
-                <label>Message *</label>
-                <textarea name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-        </form>
+        </div>
     </section>
 
     <!-- CTA -->
     <section class="cta">
-        <h2 class="fade-in">Start Your Transformation</h2>
-        <p class="fade-in">Join over 50,000 customers who have discovered the power of precision peptides.</p>
-        <a href="#products" class="btn btn-primary fade-in">Shop Collection</a>
+        <div class="container">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Order now and get free delivery on orders over AED 2,000</p>
+            <a href="#products" class="btn btn-white btn-lg">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Have questions? Our team is here to help you 24/7. Reach out via WhatsApp for fastest response.</p>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon">💬</div>
+                    <div class="contact-method-text">
+                        <h4>WhatsApp</h4>
+                        <p>+971 50 123 4567</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon">📧</div>
+                    <div class="contact-method-text">
+                        <h4>Email</h4>
+                        <p>orders@aura-peptide.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon">📍</div>
+                    <div class="contact-method-text">
+                        <h4>Location</h4>
+                        <p>Dubai, United Arab Emirates</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon">🕐</div>
+                    <div class="contact-method-text">
+                        <h4>Hours</h4>
+                        <p>24/7 WhatsApp Support</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm" onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone/WhatsApp *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" rows="4" required placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-grid">
-            <div>
-                <div class="footer-brand">PurePeptide</div>
-                <p class="footer-desc">Pioneering the future of skincare through science-backed peptide technology.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">Aura<span>Peptides</span></div>
+                    <p class="footer-desc">Premium pharmaceutical-grade peptides delivered across the UAE. 100% authentic products with fast, discreet shipping.</p>
+                </div>
+                <div>
+                    <div class="footer-title">Products</div>
+                    <ul class="footer-links">
+                        <li><a href="#products">Tirzepatide</a></li>
+                        <li><a href="#products">Semaglutide</a></li>
+                        <li><a href="#products">All Products</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="#why">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-title">Support</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <div class="footer-title">Shop</div>
-                <ul class="footer-links">
-                    <li><a href="#products">All Products</a></li>
-                    <li><a href="#products">Peptide Pen</a></li>
-                    <li><a href="#products">Accessories</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Aura Peptides. All rights reserved.</span>
+                <span>Dubai, UAE</span>
             </div>
-            <div>
-                <div class="footer-title">Company</div>
-                <ul class="footer-links">
-                    <li><a href="#benefits">About Us</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="footer-title">Support</div>
-                <ul class="footer-links">
-                    <li><a href="#contact">FAQ</a></li>
-                    <li><a href="#contact">Shipping</a></li>
-                    <li><a href="#contact">Returns</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="footer-title">Legal</div>
-                <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 PurePeptide. All rights reserved.</span>
-            <span>Made with precision in California</span>
         </div>
     </footer>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/971501234567" class="whatsapp-btn" target="_blank">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
     <script>
-        // Products data (loaded from API in production)
+        // Products data
         const products = [
-            { id: 1, name: 'Peptide Pen Pro', description: 'Precision applicator with adjustable dosage control', price: 189, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop', tag: 'Bestseller' },
-            { id: 2, name: 'Charging Dock', description: 'Elegant wireless charging station', price: 49, image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=400&fit=crop', tag: null },
-            { id: 3, name: 'Cleaning Kit', description: 'Complete maintenance set for longevity', price: 29, image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop', tag: null },
-            { id: 4, name: 'Peptide Serum Refill', description: 'Premium peptide formula - 30ml', price: 79, image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=400&fit=crop', tag: 'New' },
-            { id: 5, name: 'Complete Starter Kit', description: 'Everything you need to begin your journey', price: 249, image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop', tag: 'Best Value' }
+            {
+                id: 1,
+                name: 'Mounjafei 10mg/ml',
+                brand: 'Keifei Pharma',
+                description: 'Tirzepatide Pre-filled Pen - Professional Grade',
+                price: 850,
+                image: 'images/product1.jpg',
+                badge: 'Bestseller',
+                meta: ['1 Pen', '10mg/ml', 'Pre-filled']
+            },
+            {
+                id: 2,
+                name: 'Mounjafei 10mg/ml',
+                brand: 'Keifei Pharma',
+                description: 'Tirzepatide Single Pen with Box',
+                price: 850,
+                image: 'images/product2.jpg',
+                badge: null,
+                meta: ['1 Pen', '10mg/ml', 'Sealed']
+            },
+            {
+                id: 3,
+                name: 'Mounjafei Pen',
+                brand: 'Keifei Pharma',
+                description: 'Tirzepatide Injection Pen - Close Up View',
+                price: 850,
+                image: 'images/product3.jpg',
+                badge: null,
+                meta: ['Professional', '10mg/ml', 'Sterile']
+            },
+            {
+                id: 4,
+                name: 'Mounjafei Complete Kit',
+                brand: 'Keifei Pharma',
+                description: 'Full Package - Box, Wrapper & Pen',
+                price: 850,
+                image: 'images/product4.jpg',
+                badge: 'Popular',
+                meta: ['Complete Kit', '10mg/ml', 'Original']
+            },
+            {
+                id: 5,
+                name: 'Mounjafei 3-Pack',
+                brand: 'Keifei Pharma',
+                description: 'Buy 3 Pens - Best Value Bundle',
+                price: 2400,
+                image: 'images/product1.jpg',
+                badge: 'Save 15%',
+                badgeClass: 'hot',
+                meta: ['3 Pens', '10mg/ml', 'Bundle']
+            },
+            {
+                id: 6,
+                name: 'Mounjafei 5-Pack',
+                brand: 'Keifei Pharma',
+                description: 'Buy 5 Pens - Maximum Savings',
+                price: 3750,
+                image: 'images/product4.jpg',
+                badge: 'Save 20%',
+                badgeClass: 'hot',
+                meta: ['5 Pens', '10mg/ml', 'Best Deal']
+            }
         ];
 
         // Cart state
@@ -1276,31 +1637,31 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             updateCartUI();
-            initAnimations();
         });
 
         // Render products
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = products.map(p => `
-                <div class="product-card fade-in">
+                <div class="product-card">
                     <div class="product-image">
-                        ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
+                        ${p.badge ? `<span class="product-badge ${p.badgeClass || ''}">${p.badge}</span>` : ''}
                         <img src="${p.image}" alt="${p.name}">
                     </div>
                     <div class="product-info">
+                        <div class="product-brand">${p.brand}</div>
                         <h4 class="product-name">${p.name}</h4>
                         <p class="product-desc">${p.description}</p>
-                        <div class="product-bottom">
-                            <div class="product-price">$${p.price}</div>
+                        <div class="product-meta">
+                            ${p.meta.map(m => `<span>✓ ${m}</span>`).join('')}
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">AED ${p.price}</div>
                             <button class="add-to-cart" onclick="addToCart(${p.id})" id="btn-${p.id}">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             `).join('');
-
-            // Re-observe new elements
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         }
 
         // Add to cart
@@ -1317,7 +1678,6 @@
             saveCart();
             updateCartUI();
 
-            // Button feedback
             const btn = document.getElementById(`btn-${productId}`);
             btn.textContent = 'Added!';
             btn.classList.add('added');
@@ -1329,7 +1689,7 @@
             showToast(`${product.name} added to cart`, 'success');
         }
 
-        // Update cart quantity
+        // Update quantity
         function updateQuantity(productId, delta) {
             const item = cart.find(i => i.id === productId);
             if (item) {
@@ -1349,7 +1709,7 @@
             updateCartUI();
         }
 
-        // Save cart to localStorage
+        // Save cart
         function saveCart() {
             localStorage.setItem('cart', JSON.stringify(cart));
         }
@@ -1360,18 +1720,13 @@
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
             document.getElementById('cartCount').textContent = count;
-            document.getElementById('cartTotal').textContent = `$${total}`;
+            document.getElementById('cartTotal').textContent = `AED ${total}`;
 
             const itemsContainer = document.getElementById('cartItems');
             const footer = document.getElementById('cartFooter');
 
             if (cart.length === 0) {
-                itemsContainer.innerHTML = `
-                    <div class="cart-empty">
-                        <p>Your cart is empty</p>
-                        <a href="#products" class="btn btn-primary btn-sm" onclick="toggleCart()" style="margin-top: 16px;">Shop Now</a>
-                    </div>
-                `;
+                itemsContainer.innerHTML = `<div class="cart-empty"><p>Your cart is empty</p></div>`;
                 footer.style.display = 'none';
             } else {
                 itemsContainer.innerHTML = cart.map(item => `
@@ -1379,7 +1734,7 @@
                         <img src="${item.image}" alt="${item.name}">
                         <div class="cart-item-info">
                             <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">$${item.price}</div>
+                            <div class="cart-item-price">AED ${item.price}</div>
                             <div class="cart-item-qty">
                                 <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
                                 <span>${item.quantity}</span>
@@ -1402,7 +1757,6 @@
         // Open checkout
         function openCheckout() {
             if (cart.length === 0) return;
-
             toggleCart();
 
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -1411,12 +1765,12 @@
                 ${cart.map(item => `
                     <div class="order-item">
                         <span>${item.name} x${item.quantity}</span>
-                        <span>$${item.price * item.quantity}</span>
+                        <span>AED ${item.price * item.quantity}</span>
                     </div>
                 `).join('')}
                 <div class="order-total">
                     <span>Total</span>
-                    <span>$${total}</span>
+                    <span>AED ${total}</span>
                 </div>
             `;
 
@@ -1428,113 +1782,67 @@
             document.getElementById('checkoutModal').classList.remove('active');
         }
 
-        // Submit order
-        async function submitOrder(e) {
+        // Submit order via WhatsApp
+        function submitOrder(e) {
             e.preventDefault();
 
             const form = e.target;
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
 
-            try {
-                const response = await fetch('api/order.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-                const result = await response.json();
+            let message = `🛒 *NEW ORDER - Aura Peptides*\n\n`;
+            message += `*Customer:* ${data.name}\n`;
+            message += `*Phone:* ${data.phone}\n`;
+            if (data.email) message += `*Email:* ${data.email}\n`;
+            message += `*Address:* ${data.address}, ${data.city}, ${data.emirate}\n\n`;
+            message += `*Order Details:*\n`;
+            cart.forEach(item => {
+                message += `• ${item.name} x${item.quantity} = AED ${item.price * item.quantity}\n`;
+            });
+            message += `\n*Total: AED ${total}*`;
 
-                if (result.success) {
-                    cart = [];
-                    saveCart();
-                    updateCartUI();
+            const whatsappUrl = `https://wa.me/971501234567?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
 
-                    document.getElementById('checkoutBody').innerHTML = `
-                        <div class="success-message">
-                            <div class="success-icon">✓</div>
-                            <h3>Order Placed!</h3>
-                            <p>Order #${result.order_number}<br>A confirmation email has been sent to your email.</p>
-                            <button class="btn btn-primary" onclick="closeCheckout()">Continue Shopping</button>
-                        </div>
-                    `;
-                } else {
-                    showToast(result.error || 'Order failed', 'error');
-                }
-            } catch (err) {
-                // For demo without backend, simulate success
-                cart = [];
-                saveCart();
-                updateCartUI();
+            // Clear cart
+            cart = [];
+            saveCart();
+            updateCartUI();
 
-                document.getElementById('checkoutBody').innerHTML = `
-                    <div class="success-message">
-                        <div class="success-icon">✓</div>
-                        <h3>Order Placed!</h3>
-                        <p>Order #PP-${Math.random().toString(36).substr(2, 8).toUpperCase()}<br>A confirmation email has been sent to your email.</p>
-                        <button class="btn btn-primary" onclick="closeCheckout()">Continue Shopping</button>
-                    </div>
-                `;
-            }
+            // Show success
+            document.getElementById('checkoutBody').innerHTML = `
+                <div class="success-message">
+                    <div class="success-icon">✓</div>
+                    <h3>Order Sent!</h3>
+                    <p>Your order has been sent to WhatsApp. Please complete the conversation to confirm your order.</p>
+                    <button class="btn btn-primary" onclick="closeCheckout()">Continue Shopping</button>
+                </div>
+            `;
         }
 
         // Submit contact
-        async function submitContact(e) {
+        function submitContact(e) {
             e.preventDefault();
-
             const form = e.target;
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
 
-            try {
-                const response = await fetch('api/contact.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+            const message = `*Contact Form - Aura Peptides*\n\nName: ${data.name}\nPhone: ${data.phone}\n\nMessage: ${data.message}`;
+            const whatsappUrl = `https://wa.me/971501234567?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
 
-                const result = await response.json();
-
-                if (result.success) {
-                    showToast('Message sent! We\'ll get back to you soon.', 'success');
-                    form.reset();
-                } else {
-                    showToast(result.error || 'Failed to send message', 'error');
-                }
-            } catch (err) {
-                // For demo without backend
-                showToast('Message sent! We\'ll get back to you soon.', 'success');
-                form.reset();
-            }
+            showToast('Opening WhatsApp...', 'success');
+            form.reset();
         }
 
-        // Toast notification
+        // Toast
         function showToast(message, type = '') {
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.className = `toast ${type} show`;
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // Scroll nav
-        window.addEventListener('scroll', () => {
-            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Fade in on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        function initAnimations() {
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
         // Smooth scroll
@@ -1542,9 +1850,7 @@
             a.addEventListener('click', e => {
                 e.preventDefault();
                 const target = document.querySelector(a.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
@@ -1552,9 +1858,7 @@
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 closeCheckout();
-                if (document.getElementById('cartSidebar').classList.contains('active')) {
-                    toggleCart();
-                }
+                if (document.getElementById('cartSidebar').classList.contains('active')) toggleCart();
             }
         });
     </script>
