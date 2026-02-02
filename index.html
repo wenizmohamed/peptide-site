@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PurePeptide | Precision Skincare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #b8956c;
+            --gold-light: #d4c4a8;
+            --gold-dark: #8a6d4b;
+            --cream: #faf8f5;
+            --cream-dark: #f0ebe3;
+            --black: #1a1a1a;
+            --gray: #666;
+            --gray-light: #999;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            font-size: 15px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--black);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover { color: var(--gold); }
+
+        .nav-cart {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 100px 5% 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(184, 149, 108, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding-right: 60px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(184, 149, 108, 0.1);
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5vw, 64px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            font-style: italic;
+            color: var(--gold-dark);
+        }
+
+        .hero-text {
+            font-size: 16px;
+            color: var(--gray);
+            max-width: 440px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 1px solid var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--black);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+        }
+
+        .hero-product {
+            position: relative;
+            width: 280px;
+            height: 420px;
+            background: linear-gradient(180deg, #fff 0%, var(--cream-dark) 100%);
+            border-radius: 140px 140px 40px 40px;
+            box-shadow:
+                0 60px 120px rgba(0,0,0,0.1),
+                0 20px 60px rgba(184, 149, 108, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .product-bottle {
+            width: 100px;
+            height: 220px;
+            background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            border-radius: 50px 50px 20px 20px;
+            position: relative;
+            box-shadow: inset -10px 0 20px rgba(0,0,0,0.1);
+        }
+
+        .product-bottle::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+        }
+
+        .product-bottle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 12px;
+            background: var(--gold-dark);
+            border-radius: 0 0 10px 10px;
+        }
+
+        .hero-product-name {
+            margin-top: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: var(--black);
+        }
+
+        .hero-product-price {
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--gold-dark);
+        }
+
+        .hero-floating {
+            position: absolute;
+            border: 1px solid rgba(184, 149, 108, 0.15);
+            border-radius: 50%;
+            animation: floatSlow 15s ease-in-out infinite;
+        }
+
+        .hero-floating-1 { width: 300px; height: 300px; top: 5%; right: 10%; }
+        .hero-floating-2 { width: 150px; height: 150px; bottom: 15%; left: 5%; animation-delay: -5s; }
+        .hero-floating-3 { width: 80px; height: 80px; top: 40%; left: 15%; background: rgba(184, 149, 108, 0.05); animation-delay: -10s; }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(10px, -15px); }
+            66% { transform: translate(-10px, 10px); }
+        }
+
+        /* Features Strip */
+        .features-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--black);
+            color: white;
+        }
+
+        .feature-item {
+            padding: 40px 30px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .feature-item:last-child { border-right: none; }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .feature-item h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Section */
+        .section {
+            padding: 120px 5%;
+        }
+
+        .section-dark {
+            background: var(--black);
+            color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .section-dark .section-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 60%, rgba(184, 149, 108, 0.1) 100%);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 12px;
+            background: var(--gold);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 24px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold-dark);
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--gold);
+            background: rgba(184, 149, 108, 0.05);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 24px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .benefit-card h4 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 3vw, 32px);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 24px;
+            letter-spacing: 4px;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            text-align: center;
+            padding: 100px 5%;
+        }
+
+        .cta h2 {
+            font-size: clamp(36px, 4vw, 52px);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: var(--gray);
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: white;
+            padding: 80px 5% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { padding-right: 0; }
+            .hero-text { margin: 0 auto 40px; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { height: 400px; margin-top: 40px; }
+            .products-grid, .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero { padding: 120px 5% 60px; }
+            .features-strip { grid-template-columns: repeat(2, 1fr); }
+            .products-grid, .benefits-grid { grid-template-columns: 1fr; }
+            .section { padding: 80px 5%; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">PurePeptide</a>
+        <ul class="nav-menu">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <a href="#" class="nav-cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Cart (0)
+        </a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-floating hero-floating-1"></div>
+        <div class="hero-floating hero-floating-2"></div>
+        <div class="hero-floating hero-floating-3"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>★</span> Award Winning Formula
+            </div>
+            <h1>Precision Peptide <span>Delivery</span></h1>
+            <p class="hero-text">Experience the future of skincare with our patented micro-dosing technology. Clinically proven to reduce fine lines by 47% in just 4 weeks.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#benefits" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-product">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=700&fit=crop" alt="Peptide Pen" style="max-width: 280px; border-radius: 20px; box-shadow: 0 40px 80px rgba(0,0,0,0.15);">
+                <div class="hero-product-name">Peptide Pen Pro</div>
+                <div class="hero-product-price">$189</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Strip -->
+    <div class="features-strip">
+        <div class="feature-item">
+            <div class="feature-icon">🧬</div>
+            <h4>12 Active Peptides</h4>
+            <p>Clinically tested formula</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <h4>Precision Dosing</h4>
+            <p>Micro-delivery technology</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🌿</div>
+            <h4>Clean Formula</h4>
+            <p>Vegan & cruelty-free</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✨</div>
+            <h4>Visible Results</h4>
+            <p>In just 14 days</p>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <section class="section" id="products">
+        <div class="section-header fade-in">
+            <div class="section-label">Our Collection</div>
+            <h2 class="section-title">Complete Your Routine</h2>
+            <p class="section-desc">Each product is designed to work in harmony, delivering maximum peptide absorption for transformative results.</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <span class="product-tag">Bestseller</span>
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop" alt="Peptide Pen Pro">
+                </div>
+                <div class="product-info">
+                    <h4 class="product-name">Peptide Pen Pro</h4>
+                    <p class="product-desc">Precision applicator with adjustable dosage control</p>
+                    <div class="product-price">$189</div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=400&fit=crop" alt="Charging Dock">
+                </div>
+                <div class="product-info">
+                    <h4 class="product-name">Charging Dock</h4>
+                    <p class="product-desc">Elegant wireless charging station</p>
+                    <div class="product-price">$49</div>
+                </div>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop" alt="Cleaning Kit">
+                </div>
+                <div class="product-info">
+                    <h4 class="product-name">Cleaning Kit</h4>
+                    <p class="product-desc">Complete maintenance set for longevity</p>
+                    <div class="product-price">$29</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section section-dark" id="benefits">
+        <div class="section-header fade-in">
+            <div class="section-label">The Science</div>
+            <h2 class="section-title">Why Peptides Work</h2>
+            <p class="section-desc">Our bioactive peptide complex targets skin at the cellular level, stimulating collagen production and accelerating natural repair.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">💧</div>
+                <h4>Hydrate Deeply</h4>
+                <p>Peptides attract and lock moisture into skin, improving hydration by up to 200%.</p>
+            </div>
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">🔬</div>
+                <h4>Firm & Lift</h4>
+                <p>Stimulates collagen synthesis for visibly firmer, more elastic skin.</p>
+            </div>
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">✨</div>
+                <h4>Brighten Tone</h4>
+                <p>Reduces hyperpigmentation and evens skin tone for a radiant glow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="reviews">
+        <div class="section-header fade-in">
+            <div class="section-label">Reviews</div>
+            <h2 class="section-title">Loved by Thousands</h2>
+        </div>
+
+        <div class="testimonials fade-in">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"I've tried countless serums and devices. Nothing comes close to PurePeptide. My skin has never looked this good—friends keep asking what I'm doing differently."</p>
+            <div class="testimonial-author">Sarah Mitchell</div>
+            <div class="testimonial-role">Verified Buyer, New York</div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="about">
+        <h2 class="fade-in">Start Your Transformation</h2>
+        <p class="fade-in">Join over 50,000 customers who have discovered the power of precision peptides.</p>
+        <a href="#products" class="btn btn-primary fade-in">Shop Collection</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">PurePeptide</div>
+                <p class="footer-desc">Pioneering the future of skincare through science-backed peptide technology.</p>
+            </div>
+            <div>
+                <div class="footer-title">Shop</div>
+                <ul class="footer-links">
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Peptide Pen</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">Company</div>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">Support</div>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Track Order</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">Legal</div>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 PurePeptide. All rights reserved.</span>
+            <span>Made with precision in California</span>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll nav
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Fade in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
